@@ -1,0 +1,8 @@
+silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#helptags()
+
+set backupdir=$TMPDIR,~/.vim-tmp,~/.tmp
+set directory=$TMPDIR,~/.vim-tmp,~/.tmp
+
+"for LustyExplorer
+set hidden
