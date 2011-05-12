@@ -6,3 +6,9 @@ set directory=$TMPDIR,~/.vim-tmp,~/.tmp
 
 "for LustyExplorer
 set hidden
+
+set colorcolumn=80
+set scrolloff=3
+
+set ignorecase
+set smartcase

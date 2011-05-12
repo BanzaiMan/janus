@@ -152,3 +152,6 @@ call s:DefineCommand("e", "Edit")
 if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
+
+" set font
+set guifont=Inconsolata:h18
