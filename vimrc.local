@@ -1,3 +1,5 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+silent! call pathogen#infect()
 silent! call pathogen#runtime_append_all_bundles()
 silent! call pathogen#helptags()
 
@@ -14,11 +16,8 @@ set ignorecase
 set smartcase
 
 set background=dark
-colorscheme solarized
 
 autocmd BufRead,BufNewFile *.pp setlocal tabstop=4 shiftwidth=4 expandtab list listchars=tab:>-,trail:.,extends:>
-" Trim trailing whitespace from Ruby and Yaml files
-autocmd BufWritePre *.rb,*.yml,*.yaml :%s/\s\+$//e
 
 "flag problematic whitespace (trailing and spaces before tabs)
 "Note you get the same by doing let c_space_errors=1 but
@@ -26,7 +25,8 @@ autocmd BufWritePre *.rb,*.yml,*.yaml :%s/\s\+$//e
 highlight RedundantSpaces term=standout ctermbg=red guibg=red
 match RedundantSpaces /\s\+$\| \+\ze\t/ "\ze sets end of match so only spaces highlighted
 
-" GUI font
-if has("gui_running")
-  set guifont=Source\ Code\ Pro\ Semibold:h14
-endif
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
